@@ -1,0 +1,38 @@
+{
+  "name": "mastra-second-brain",
+  "version": "0.1.0",
+  "description": "A Mastra second-brain agent on Knowledge: a shared, scoped wiki the agent searches, cites and keeps current. Pages, notes and pins live in libSQL/Turso, filled by the agent and by folder or app sync. No RAG pipeline, no Docker.",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "mastra dev",
+    "build": "mastra build",
+    "start": "mastra start",
+    "typecheck": "tsc --noEmit",
+    "knowledge:sync": "node --env-file=.env --import tsx/esm scripts/knowledge-sync.ts",
+    "eval": "node --env-file=.env --import tsx/esm scripts/eval.ts"
+  },
+  "dependencies": {
+    "@mastra/auth": "1.1.5",
+    "@mastra/core": "1.82.0",
+    "@mastra/editor": "0.17.0",
+    "@mastra/fastembed": "1.3.6",
+    "@mastra/libsql": "1.29.0",
+    "@mastra/loggers": "1.3.10",
+    "@mastra/mcp": "2.8.0",
+    "@mastra/memory": "1.41.0",
+    "@mastra/observability": "1.23.1",
+    "@mastra/server": "1.82.0",
+    "zod": "^4.4.2"
+  },
+  "devDependencies": {
+    "@mastra/deployer-vercel": "1.2.41",
+    "@types/node": "^25.6.0",
+    "mastra": "1.38.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  }
+}

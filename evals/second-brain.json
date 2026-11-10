@@ -1,0 +1,33 @@
+{
+  "agentId": "secondBrain",
+  "seed": [
+    {
+      "path": "clients/acme",
+      "name": "Acme Corp",
+      "body": "# Acme Corp\n\n- **Plan:** Teams, 40 seats\n- **Renewal:** March 1, billed annually\n- **Main contact:** Dana Reyes, Head of Operations\n"
+    }
+  ],
+  "cases": [
+    {
+      "name": "answers from a page and cites it",
+      "input": "When does Acme renew?",
+      "expectTool": "knowledge_search",
+      "expectToolResultIncludes": "clients/acme",
+      "expectAnswerIncludes": "March 1"
+    },
+    {
+      "name": "says so when nothing is found",
+      "input": "What is our refund policy?",
+      "expectTool": "knowledge_search",
+      "expectToolResultExcludes": "refund",
+      "expectAnswerIncludes": "couldn't find"
+    },
+    {
+      "name": "records a new fact as a note",
+      "input": "Remember that Acme's main contact is now Sam Lee.",
+      "expectTool": "knowledge_note",
+      "expectToolResultIncludes": "Sam Lee",
+      "expectAnswerIncludes": "Sam Lee"
+    }
+  ]
+}

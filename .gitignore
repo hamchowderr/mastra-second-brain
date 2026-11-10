@@ -1,0 +1,17 @@
+output.txt
+node_modules
+dist
+.mastra
+.env
+.env.*
+!.env.example
+mastra.duckdb*
+*.db
+*.db-*
+.netlify
+.vercel
+.claude/
+
+
+# Folder sync state (paths synced last run)
+.knowledge-sync.json

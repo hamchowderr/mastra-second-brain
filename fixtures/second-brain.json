@@ -1,0 +1,50 @@
+{
+  "_comment": "AIMock fixtures for evals/second-brain.json. Page refs assume KNOWLEDGE_ORG_ID=default. The tools run for real against the local database; only the model is mocked.",
+  "fixtures": [
+    {
+      "match": { "userMessage": "When does Acme renew?", "hasToolResult": false },
+      "response": {
+        "toolCalls": [
+          { "id": "toolu_search_acme", "name": "knowledge_search", "arguments": { "query": "Acme renewal" } }
+        ]
+      }
+    },
+    {
+      "match": { "toolCallId": "toolu_search_acme" },
+      "response": { "content": "Acme renews on March 1, billed annually (from org:default#clients/acme)." }
+    },
+    {
+      "match": { "userMessage": "What is our refund policy?", "hasToolResult": false },
+      "response": {
+        "toolCalls": [
+          { "id": "toolu_search_refund", "name": "knowledge_search", "arguments": { "query": "refund policy" } }
+        ]
+      }
+    },
+    {
+      "match": { "toolCallId": "toolu_search_refund" },
+      "response": { "content": "I couldn't find anything about a refund policy in the knowledge base." }
+    },
+    {
+      "match": { "userMessage": "Remember that Acme's main contact is now Sam Lee.", "hasToolResult": false },
+      "response": {
+        "toolCalls": [
+          {
+            "id": "toolu_note_acme",
+            "name": "knowledge_note",
+            "arguments": {
+              "op": "add",
+              "page": "org:default#clients/acme",
+              "scope": ["org:default"],
+              "text": "Main contact is now Sam Lee (replaces Dana Reyes)."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "match": { "toolCallId": "toolu_note_acme" },
+      "response": { "content": "Noted on Acme Corp: the main contact is now Sam Lee." }
+    }
+  ]
+}
