@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "mastra_second_brain",
+  "project_id": "a29d37a9-35be-447b-9f2a-e2d716e70f87"
+}
