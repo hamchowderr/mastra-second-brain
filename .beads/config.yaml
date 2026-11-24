@@ -72,4 +72,6 @@
 # - github.token    → use GITHUB_TOKEN env var instead
 
 sync:
-    remote: "git+https://github.com/hamchowderr/mastra-second-brain.git"
+    remote: chowderr/mastra-second-brain
+validation:
+    on-create: error
