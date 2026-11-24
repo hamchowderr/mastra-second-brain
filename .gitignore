@@ -15,3 +15,9 @@ mastra.duckdb*
 
 # Folder sync state (paths synced last run)
 .knowledge-sync.json
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+.beads-credential-key
+.beads/proxieddb/
+*.gate.lock*
